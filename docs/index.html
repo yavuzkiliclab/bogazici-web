@@ -110,7 +110,7 @@ header.on-dark .seal-sm .b{stroke:var(--petrol-deep)}
 }
 .act-open .copy::before{
   content:"";position:absolute;inset:0;z-index:1;
-  background:var(--parchment);opacity:.35;
+  background:var(--bone);opacity:.35;
 }
 .seal-hero{width:clamp(140px,15vw,190px);height:auto;display:block;margin:0 auto clamp(22px,3.5vh,38px)}
 .act-open h1{
@@ -232,6 +232,18 @@ header.on-dark .seal-sm .b{stroke:var(--petrol-deep)}
   font-family:"Fraunces",Georgia,serif;font-weight:420;
   font-size:clamp(28px,3.8vw,48px);letter-spacing:-.01em;
 }
+.tx-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.6vw,22px);margin-top:clamp(20px,3vh,32px)}
+.tcard{display:flex;flex-direction:column;background:var(--bone);border:1px solid var(--hairline);border-radius:2px;overflow:hidden;transition:transform .35s,border-color .35s}
+.tcard:hover{transform:translateY(-4px);border-color:var(--gold)}
+.tcard .timg{aspect-ratio:3/2;background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#FBF2E7}
+.tcard .tbody{display:flex;flex-direction:column;gap:6px;padding:clamp(16px,1.4vw,20px)}
+.tcard .tno{font-size:11px;letter-spacing:.14em;color:var(--gold);font-weight:500}
+.tcard .tname{font-family:"Fraunces",Georgia,serif;font-weight:420;font-size:clamp(17px,1.5vw,20px);line-height:1.15;color:var(--ink)}
+.tcard .tdesc{font-size:13px;color:var(--ink-soft);line-height:1.45}
+.tcard .tgo{margin-top:auto;padding-top:8px;font-size:12px;letter-spacing:.05em;color:var(--ink-soft);transition:color .3s}
+.tcard:hover .tgo{color:var(--gold)}
+@media(max-width:1000px){.tx-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.tx-cards{grid-template-columns:1fr}}
 .act-guide{padding:clamp(48px,7.5vh,88px) clamp(24px,5vw,72px);border-top:1px solid var(--hairline)}
 .act-guide .headrow{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:clamp(24px,3.5vh,40px)}
 .act-guide h2{font-family:"Fraunces",Georgia,serif;font-weight:420;font-size:clamp(28px,3.8vw,48px);letter-spacing:-.01em}
@@ -588,56 +600,16 @@ footer .legalnav a{border-bottom:1px solid var(--hairline);padding-bottom:2px}
   <div class="headrow reveal">
     <h2>Tedavi Alanlarımız</h2>
       </div>
-  <nav class="tx reveal d1" aria-label="Treatments">
-    <a href="tedaviler/implant.html">
-      <span class="no">01</span>
-      <span class="name">İmplant</span>
-      <span class="desc">Tek diş eksikliğinden tam çene restorasyonlarına uzanan implant tedavileri. Planlama dijital ortamda yapılır; cerrahi uygulama ve protez üretimi aynı çatı altında yürütülür.</span>
-      <span class="go">→</span>
-    </a>
-    <a href="tedaviler/estetik-dis-hekimligi.html">
-      <span class="no">02</span>
-      <span class="name">Estetik diş hekimliği</span>
-      <span class="desc">Lamina kaplama, bonding, diş beyazlatma ve kapsamlı gülüş tasarımı uygulamaları.</span>
-      <span class="go">→</span>
-    </a>
-    <a href="tedaviler/kron-ve-kopru-protezleri.html">
-      <span class="no">03</span>
-      <span class="name">Kron ve köprü protezleri</span>
-      <span class="desc">Zirkonyum ve cam seramik altyapılı kron ve köprüler, klinik bünyesindeki laboratuvarda üretilir.</span>
-      <span class="go">→</span>
-    </a>
-    <a href="tedaviler/agiz-dis-ve-cene-cerrahisi.html">
-      <span class="no">04</span>
-      <span class="name">Ağız, diş ve çene cerrahisi</span>
-      <span class="desc">Diş çekimi, gömülü yirmi yaş dişi operasyonları ve diş eti cerrahisi; hekim değerlendirmesine göre lokal ya da genel anestezi altında uygulanır.</span>
-      <span class="go">→</span>
-    </a>
-    <a href="tedaviler/ortodonti.html">
-      <span class="no">05</span>
-      <span class="name">Ortodonti</span>
-      <span class="desc">Yetişkin ve genç hastalar için sabit tel tedavisi ve şeffaf plak uygulamaları.</span>
-      <span class="go">→</span>
-    </a>
-    <a href="tedaviler/endodonti.html">
-      <span class="no">06</span>
-      <span class="name">Endodonti</span>
-      <span class="desc">Kanal tedavisi ve doğal dişin ağızda korunmasına yönelik uygulamalar.</span>
-      <span class="go">→</span>
-    </a>
-    <a href="tedaviler/periodontoloji.html">
-      <span class="no">07</span>
-      <span class="name">Periodontoloji</span>
-      <span class="desc">Diş eti sağlığının korunması ve diş eti hastalıklarının tedavisi.</span>
-      <span class="go">→</span>
-    </a>
-    <a href="tedaviler/cene-eklemi-ve-cocuk-dis-hekimligi.html">
-      <span class="no">08</span>
-      <span class="name">Çene eklemi ve çocuk diş hekimliği</span>
-      <span class="desc">Çene eklemi rahatsızlıklarının ilgili tıp branşlarıyla birlikte değerlendirilmesi; çocuk hastaların ayrı bir birimde muayene ve tedavisi.</span>
-      <span class="go">→</span>
-    </a>
-  </nav>
+  <div class="tx-cards reveal d1">
+  <a class="tcard" href="tedaviler/implant.html"><div class="timg" style="background-image:url('assets/tedavi/tedavi-implant.jpg')"></div><div class="tbody"><span class="tno">01</span><span class="tname">İmplant</span><span class="tdesc">Tek diş eksikliğinden tam çeneye; dijital planlama, kendi tezgâhımızda üretim.</span><span class="tgo">İncele →</span></div></a>
+  <a class="tcard" href="tedaviler/estetik-dis-hekimligi.html"><div class="timg" style="background-image:url('assets/tedavi/tedavi-estetik.jpg')"></div><div class="tbody"><span class="tno">02</span><span class="tname">Estetik diş hekimliği</span><span class="tdesc">Kaplama, bonding ve gülüş tasarımı; ekranda planlanır, siz onaylarsınız.</span><span class="tgo">İncele →</span></div></a>
+  <a class="tcard" href="tedaviler/kron-ve-kopru-protezleri.html"><div class="timg" style="background-image:url('assets/tedavi/tedavi-kron.jpg')"></div><div class="tbody"><span class="tno">03</span><span class="tname">Kron ve köprü protezleri</span><span class="tdesc">Zirkonyum ve seramik restorasyonlar; doğal renginize uyumlu, güçlü ve ışıltılı.</span><span class="tgo">İncele →</span></div></a>
+  <a class="tcard" href="tedaviler/agiz-dis-ve-cene-cerrahisi.html"><div class="timg" style="background-image:url('assets/tedavi/tedavi-cerrahi.jpg')"></div><div class="tbody"><span class="tno">04</span><span class="tname">Ağız, diş ve çene cerrahisi</span><span class="tdesc">Çekimler, gömülü yirmi yaş dişleri ve implanta zemin hazırlayan işlemler.</span><span class="tgo">İncele →</span></div></a>
+  <a class="tcard" href="tedaviler/ortodonti.html"><div class="timg" style="background-image:url('assets/tedavi/tedavi-ortodonti.jpg')"></div><div class="tbody"><span class="tno">05</span><span class="tname">Ortodonti</span><span class="tdesc">Tel ve şeffaf plak; yetişkin ve gençlerde önce işlev, sonra estetik.</span><span class="tgo">İncele →</span></div></a>
+  <a class="tcard" href="tedaviler/endodonti.html"><div class="timg" style="background-image:url('assets/tedavi/tedavi-endodonti.jpg')"></div><div class="tbody"><span class="tno">06</span><span class="tname">Endodonti</span><span class="tdesc">Kanal tedavisiyle kaybedeceğiniz dişi kurtarmak, modern konforla.</span><span class="tgo">İncele →</span></div></a>
+  <a class="tcard" href="tedaviler/periodontoloji.html"><div class="timg" style="background-image:url('assets/tedavi/tedavi-periodontoloji.jpg')"></div><div class="tbody"><span class="tno">07</span><span class="tname">Periodontoloji</span><span class="tdesc">Diş eti sağlığı; her implant, kron ve kaplamanın üstünde durduğu temel.</span><span class="tgo">İncele →</span></div></a>
+  <a class="tcard" href="tedaviler/cene-eklemi-ve-cocuk-dis-hekimligi.html"><div class="timg" style="background-image:url('assets/tedavi/tedavi-cene-cocuk.jpg')"></div><div class="tbody"><span class="tno">08</span><span class="tname">Çene eklemi ve çocuk diş hekimliği</span><span class="tdesc">Yetişkinde çene eklemi değerlendirmesi ve çocuklar için nazik bir başlangıç.</span><span class="tgo">İncele →</span></div></a>
+</div>
   
 </section>
 
