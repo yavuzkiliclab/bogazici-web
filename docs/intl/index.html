@@ -46,7 +46,10 @@ header{
   position:fixed;top:0;left:0;right:0;z-index:10;
   display:flex;justify-content:space-between;align-items:center;
   padding:16px clamp(24px,5vw,72px);
-  transition:color .4s;
+  background:rgba(240,237,228,.72);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  transition:color .4s, background .4s;
 }
 .brand{display:flex;align-items:center;gap:12px}
 .brand .name{
