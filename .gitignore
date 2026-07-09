@@ -1,3 +1,10 @@
 dentalbosphorusdurum.md
 arsiv/
 *.bak-*
+.gstack/
+*.bak.*
+belgeler/
+foto-ham/
+foto-web/
+video-ham/
+bosphorus-foto-isle.py
