@@ -484,6 +484,16 @@ footer .legalnav a{border-bottom:1px solid var(--hairline);padding-bottom:2px}
   .tx .desc{display:none}
 }
 </style>
+<style>
+.techlead{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 34px}
+.tl-card{border:1px solid var(--petrol);border-radius:12px;overflow:hidden;background:transparent;transition:border-color .2s,transform .2s;margin:0;display:flex;flex-direction:column}
+.tl-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.tl-card img{width:100%;height:170px;object-fit:cover;display:block}
+.tl-card figcaption{padding:16px 16px 18px;flex:1}
+.tl-card h4{margin:0 0 7px;font-size:1.02rem;color:var(--petrol);line-height:1.25}
+.tl-card p{margin:0;font-size:.9rem;line-height:1.5;opacity:.9}
+@media(max-width:760px){.techlead{grid-template-columns:1fr}.tl-card img{height:200px}}
+</style>
 </head>
 <body>
 
@@ -633,7 +643,12 @@ footer .legalnav a{border-bottom:1px solid var(--hairline);padding-bottom:2px}
     <h2>Teknoloji</h2>
     <span class="micro">Tanı ve tedavide kullanılan donanım</span>
   </div>
-  <div class="tech reveal d1">
+  <div class="techlead">
+<figure class="tl-card"><img src="assets/fark-lab.jpg" alt="Klinik içi laboratuvar" loading="lazy"><figcaption><h4>Kendi laboratuvarımız</h4><p>Protez, kron ve köprüler klinik bünyemizdeki laboratuvarda hazırlanır. Dış laboratuvar beklemesi olmadan, daha hızlı ve kontrollü.</p></figcaption></figure>
+<figure class="tl-card"><img src="assets/fark-tarama.jpg" alt="Dijital ağız içi tarama" loading="lazy"><figcaption><h4>Dijital ölçü</h4><p>Klasik ölçü macunu yerine dijital ağız içi tarama. Daha konforlu, daha hassas kayıt.</p></figcaption></figure>
+<figure class="tl-card"><img src="assets/fark-bina.jpg" alt="Üç katlı poliklinik" loading="lazy"><figcaption><h4>Üç katlı poliklinik</h4><p>Tam donanımlı üç katlı sağlık kuruluşumuzda görüntülemeden tedaviye tüm işlemler tek çatı altında.</p></figcaption></figure>
+</div>
+<div class="tech reveal d1">
     <div>
       <p class="t">Üç boyutlu görüntüleme</p>
       <p class="d">Ağız içi tarayıcılar ve hacimsel tomografi dâhil dijital görüntüleme sistemleri. Ölçü, ölçü kaşığı kullanılmadan dijital olarak alınır; tedavi planı ekran üzerinde hazırlanır.</p>
