@@ -418,6 +418,7 @@ header.on-dark .seal-sm .b{stroke:var(--petrol-deep)}
 .act-close{
   padding:clamp(56px,9vh,104px) clamp(24px,5vw,72px);
   text-align:center;border-top:1px solid var(--hairline);
+  overflow:hidden;
 }
 .seal-lg{width:clamp(170px,22vw,230px);height:auto;display:block;margin:0 auto clamp(24px,4vh,40px)}
 .act-close .line{
@@ -426,6 +427,15 @@ header.on-dark .seal-sm .b{stroke:var(--petrol-deep)}
   max-width:26ch;margin:0 auto;
 }
 .act-close .cta{margin-top:clamp(24px,4vh,36px)}
+.close-atmos{position:absolute;width:22.5%;height:38%;background-size:cover;background-position:center;opacity:.5;z-index:0;pointer-events:none;-webkit-mask-composite:source-in;mask-composite:intersect}
+.ca-tl{left:1.5%;top:8%}
+.ca-bl{left:1.5%;bottom:8%}
+.ca-tr{right:1.5%;top:8%}
+.ca-br{right:1.5%;bottom:8%}
+.ca-tl,.ca-bl{-webkit-mask-image:linear-gradient(to right,#000 28%,transparent 95%),linear-gradient(to bottom,transparent 2%,#000 20%,#000 80%,transparent 98%);mask-image:linear-gradient(to right,#000 28%,transparent 95%),linear-gradient(to bottom,transparent 2%,#000 20%,#000 80%,transparent 98%)}
+.ca-tr,.ca-br{-webkit-mask-image:linear-gradient(to left,#000 28%,transparent 95%),linear-gradient(to bottom,transparent 2%,#000 20%,#000 80%,transparent 98%);mask-image:linear-gradient(to left,#000 28%,transparent 95%),linear-gradient(to bottom,transparent 2%,#000 20%,#000 80%,transparent 98%)}
+.act-close .seal-lg,.act-close .line,.act-close .cta{position:relative;z-index:1}
+@media(max-width:760px){.close-atmos{display:none}}
 
 /* ---------- footer ---------- */
 footer{
@@ -729,6 +739,10 @@ footer .legalnav a{border-bottom:1px solid var(--hairline);padding-bottom:2px}
 <div class="gap" aria-hidden="true"></div>
 
 <section class="act-close">
+  <div class="close-atmos ca-tl" style="background-image:url(assets/bogazici-close-01.jpg)"></div>
+  <div class="close-atmos ca-bl" style="background-image:url(assets/bogazici-close-02.jpg)"></div>
+  <div class="close-atmos ca-tr" style="background-image:url(assets/bogazici-close-03.jpg)"></div>
+  <div class="close-atmos ca-br" style="background-image:url(assets/bogazici-close-04.jpg)"></div>
   <svg class="seal-lg reveal" viewBox="0 0 200 200" role="img" aria-label="Boğaziçi Diş mührü · gülümseyen köprü">
     <defs>
       <clipPath id="clipLg"><circle cx="100" cy="100" r="56"/></clipPath>
