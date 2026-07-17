@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Remote Dental Follow-Up: Photo Check-Ins After Treatment</title>
+<meta name="description" content="How remote dental follow-up works after treatment abroad: what a photo and message can handle, what needs an in-person look, and how to take a useful photo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#09102D;--violet:#123A63;--indigo:#1A4C82;--gold-soft:#E4A86E;--gold-mid:#A85E28;--gold-leaf:linear-gradient(150deg,#EFB579 0%,#C67A34 32%,#9A5622 62%,#5E2C0C 100%);--paper:#FFFFFF;--text:#1A1E2E;--muted:#4C4F57;--line:rgba(11,13,40,.10);--radius:16px;--wash:#F7F4EF}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:var(--text);background:var(--paper);line-height:1.72;font-size:17px}
+a{color:var(--gold-mid)}
+.hdr{position:sticky;top:0;z-index:100;background:rgba(9,16,45,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(228,168,110,.18)}
+.hdr .in{max-width:1180px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:block}.brand-logo{height:48px;width:auto;display:block}
+.nav{display:flex;gap:24px;align-items:center}
+.nav a{color:#C9D4E6;text-decoration:none;font-size:14px;font-weight:600}.nav a:hover{color:#fff}
+.wa{background:var(--gold-leaf);color:#fff;padding:9px 18px;border-radius:30px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 4px 14px rgba(110,53,18,.35)}
+@media(max-width:720px){.nav a:not(.wa){display:none}}
+.a-hero{background:linear-gradient(160deg,#09102D,#123A63);color:#fff;padding:58px 0 50px}
+.a-wrap{max-width:760px;margin:0 auto;padding:0 28px}
+.micro{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);margin:0}
+.a-hero h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(30px,5vw,44px);line-height:1.12;margin:16px 0 20px;color:#fff}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13.5px;color:#AEBDD4}
+.article{max-width:760px;margin:0 auto;padding:48px 28px 20px}
+.lead{font-size:19px;color:var(--ink);font-weight:500;line-height:1.6;margin:0 0 34px}
+.article h2{font-family:"Fraunces",serif;font-weight:600;font-size:26px;color:var(--ink);margin:44px 0 14px}
+.article h3{font-size:19px;font-weight:800;color:var(--ink);margin:26px 0 8px}
+.article p{margin:0 0 18px}
+.article ul{margin:0 0 18px;padding-left:22px}.article li{margin:7px 0}
+.article strong{color:var(--ink)}
+.article a{color:var(--gold-mid);border-bottom:1px solid rgba(168,94,40,.35);text-decoration:none}
+.pull{border-left:3px solid;border-image:var(--gold-leaf) 1;background:var(--wash);padding:20px 24px;border-radius:0 12px 12px 0;margin:30px 0}
+.pull .micro{color:var(--gold-mid)}
+.pull p{margin:8px 0 0;font-family:"Fraunces",serif;font-size:20px;line-height:1.5;color:var(--violet)}
+.faq{margin:44px 0 8px}.faq h2{margin-bottom:16px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:16px 32px 16px 0;position:relative;font-weight:700;font-size:16.5px;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:14px;font-size:22px;color:var(--gold-mid)}
+.faq details[open] summary::after{content:"\2013"}
+.faq details p{padding:0 0 18px;color:var(--muted);font-size:15.5px;margin:0}
+.related{background:var(--wash);border-radius:var(--radius);padding:24px 26px;margin:40px 0}
+.related h4{margin:0 0 12px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-mid)}
+.related a{display:block;padding:8px 0;color:var(--ink);text-decoration:none;font-weight:600;border-bottom:1px solid var(--line)}
+.related a:last-child{border:0}.related a:hover{color:var(--gold-mid)}
+.notice{font-size:13px;color:var(--muted);font-style:italic;border-top:1px solid var(--line);padding-top:18px;margin:30px 0}
+.a-cta{text-align:center;background:linear-gradient(160deg,#09102D,#123A63);border-radius:20px;padding:44px 28px;margin:44px 0;color:#fff}
+.a-cta h3{font-family:"Fraunces",serif;font-weight:600;font-size:25px;margin:0 0 10px;color:#fff}
+.a-cta p{color:#C9D4E6;margin:0 0 22px;font-size:15px}
+.a-cta .wa{display:inline-flex;align-items:center;gap:9px;padding:14px 30px;font-size:15px;color:#fff!important}
+.backlink{display:inline-block;margin:8px 0 40px;color:var(--gold-mid);text-decoration:none;font-weight:700;font-size:14px}
+.ftr{background:#09102D;color:#8fa4c0;text-align:center;padding:28px;font-size:13px}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Remote Dental Follow-Up: Photo Check-Ins After Treatment", "description": "How remote follow-up handles most after-treatment questions and flags the rest.", "author": {"@type": "Organization", "name": "Dental Bosphorus"}, "publisher": {"@type": "Organization", "name": "Dental Bosphorus"}, "datePublished": "2026-07-17"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can dental aftercare be done remotely?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, for many things. A clear photo and a short message can handle reassurance about healing, questions about diet and cleaning, and minor sensitivity. It also flags the few concerns that need an in-person look, which can be arranged at a UK partner treatment centre."}}, {"@type": "Question", "name": "When does a concern need more than a photo?", "acceptedAnswer": {"@type": "Answer", "text": "Persistent or worsening pain, swelling that is getting worse, a loose restoration, or anything that does not match what you were told to expect all need a proper examination with hands and imaging, not just a remote check."}}, {"@type": "Question", "name": "How do I take a useful photo for my dentist?", "acceptedAnswer": {"@type": "Answer", "text": "Use natural light near a window, get close but keep it in focus, gently move the lip out of the way, and take a couple of angles. Add a sentence on what you feel and when it started. A clear photo gets you a better answer."}}]}</script>
+</head>
+<body>
+<header class="hdr"><div class="in">
+  <a class="brand" href="../index.html"><img src="../assets/logo.svg" alt="Dental Bosphorus" class="brand-logo"></a>
+  <nav class="nav"><a href="../index.html#treatments">Treatments</a><a href="../index.html#guide">Guides</a><a href="index.html">The Journal</a><a href="../index.html#faq">FAQ</a><a class="wa" href="https://wa.me/905387834218">WhatsApp</a></nav>
+</div></header>
+<section class="a-hero"><div class="a-wrap">
+  <p class="micro">The Journal &middot; Aftercare</p>
+  <h1>Remote follow-up: photo check-ins and staying in touch</h1>
+  <div class="meta"><span>Published 17 July 2026</span><span>&middot; 6 min read</span></div>
+</div></section>
+<article class="article">
+  <p class="lead">Not every question after treatment needs a trip to a dentist. A lot can be handled with a photo and a message, quickly and from your sofa. Remote follow-up is the quiet workhorse of good aftercare: it deals with the small things fast, and it flags the few that need a closer look. Here is how it works and what it can and cannot do.</p>
+
+  <h2>What remote follow-up is for</h2>
+  <p>After treatment, most concerns are small: a question about healing, a bit of sensitivity, wanting reassurance that something looks normal. These do not need an appointment. A clear photo and a short description, sent to your coordinator, usually gets you an answer the same day. It saves you time and worry, and it means the clinic stays involved in your recovery even after you are home.</p>
+
+  <div class="pull"><span class="micro">The everyday tool</span><p>A photo and a message handle most after-treatment questions. The trick is knowing which ones need more.</p></div>
+
+  <h2>What it handles well</h2>
+  <ul>
+    <li>Reassurance that healing looks normal in the early weeks.</li>
+    <li>Questions about diet, cleaning and what to expect day to day.</li>
+    <li>Minor sensitivity or discomfort that is settling as expected.</li>
+    <li>Checking whether something warrants an in-person look.</li>
+  </ul>
+  <p>In many cases, a quick exchange is all it takes to turn worry into reassurance, or to catch something early enough that it stays minor.</p>
+
+  <h2>What needs more than a photo</h2>
+  <p>Remote follow-up is a triage tool, not a replacement for examination. Some things need hands and imaging: persistent pain, swelling that is getting worse, a restoration that has come loose, or anything that does not match what you were told to expect. When a photo suggests one of these, the answer is a proper look. Through our UK partner network that can be in person at one of eight partner treatment centres, close to home. You can read how that works in our <a href="in-person-aftercare-uk-partner-locations.html">partner locations article</a>.</p>
+
+  <h2>How to take a useful photo</h2>
+  <p>A good photo makes remote follow-up far more effective. Use natural light near a window. Get close but keep it in focus. Pull the lip gently out of the way so the area is visible. Take a couple from slightly different angles. And add a sentence on what you are feeling and when it started. The clearer the picture, the better the answer you get back.</p>
+
+
+  <h2>How often should you check in?</h2>
+  <p>There is no fixed schedule, and you do not need to send daily updates. The sensible rhythm is simple: reach out whenever something is genuinely on your mind, and otherwise let healing happen. In the first week or two after a bigger treatment, a check-in or two is common as things settle. After that, most people only get in touch if a specific question comes up. The point is not constant monitoring, it is knowing the channel is open whenever you want reassurance. A patient who feels free to ask a small question early is far better off than one who worries in silence and lets a minor thing grow.</p>
+
+  <h2>Why staying in touch matters</h2>
+  <p>The patients who have the smoothest recoveries are almost always the ones who stay in contact. A short message early beats a big problem later. Good aftercare is a two-way habit: we stay reachable, and you reach out when something is on your mind. That simple loop is what keeps small things small.</p>
+  <div class="related"><h4>Continue reading</h4><a href="in-person-aftercare-uk-partner-locations.html">In-person aftercare at UK partner locations &rarr;</a><a href="warning-signs-after-treatment.html">Warning signs after treatment &rarr;</a><a href="aftercare-uk-dentist-after-turkey.html">How UK aftercare works &rarr;</a></div>
+  <div class="notice">This article is for general information for prospective patients. It is not a substitute for a clinical examination, and any treatment decision is made by a qualified dentist after assessing your individual case.</div>
+  <div class="a-cta"><h3>Have a question about follow-up?</h3><p>Send us a message on WhatsApp. Ask how remote check-ins work after your treatment.</p><a class="wa" href="https://wa.me/905387834218?text=Hi%2C%20I%20have%20a%20question%20about%20remote%20follow-up."><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg> Message us on WhatsApp</a></div>
+  <a class="backlink" href="aftercare.html">&larr; More aftercare articles</a>
+</article>
+<footer class="ftr">Dental Bosphorus &middot; Istanbul &middot; Licensed oral &amp; dental health polyclinic</footer>
+</body>
+</html>
