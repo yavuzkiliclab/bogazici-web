@@ -271,6 +271,32 @@
 .pp-list b{color:#fff}
 .pp-foot{margin-top:24px;font-size:12.5px;color:#9fb4d0}
 @media(max-width:820px){.pp-grid{grid-template-columns:1fr}.pp-visual{min-height:240px}.pp-body{padding:34px 26px}}
+
+/* spin & save */
+.spin-fab{position:fixed;right:22px;bottom:22px;z-index:9000;display:flex;align-items:center;gap:10px;background:var(--ink);color:#fff;border:1px solid rgba(228,168,110,.35);border-radius:40px;padding:11px 18px 11px 12px;cursor:pointer;box-shadow:0 12px 30px rgba(6,11,32,.4);font-weight:700;font-size:14px;transition:transform .2s;font-family:inherit}
+.spin-fab:hover{transform:translateY(-2px)}
+.spin-fab .disc{width:30px;height:30px;border-radius:50%;background:conic-gradient(#EFB579,#C67A34,#5E2C0C,#C67A34,#EFB579);position:relative;animation:spindisc 6s linear infinite}
+.spin-fab .disc::after{content:"";position:absolute;inset:9px;background:var(--ink);border-radius:50%}
+@keyframes spindisc{to{transform:rotate(360deg)}}
+.spin-ov{position:fixed;inset:0;z-index:9500;background:rgba(6,11,32,.82);backdrop-filter:blur(6px);display:none;flex-direction:column;align-items:center;justify-content:center;padding:20px;gap:22px}
+.spin-ov.show{display:flex}
+.spin-x{position:absolute;right:20px;top:16px;background:none;border:none;color:#8fa4c0;font-size:30px;cursor:pointer;line-height:1}
+.wheel-wrap{position:relative;width:min(78vw,420px);height:min(78vw,420px);transform:scale(.6);opacity:0;transition:transform .5s cubic-bezier(.2,.9,.3,1.2),opacity .4s}
+.spin-ov.show .wheel-wrap{transform:scale(1);opacity:1}
+.wheel{width:100%;height:100%;border-radius:50%;position:relative;transition:transform 4.6s cubic-bezier(.17,.67,.16,1);border:7px solid #0E1730;box-shadow:0 0 0 4px var(--gold-mid),0 20px 60px rgba(6,11,32,.6)}
+.wheel svg{width:100%;height:100%;display:block;border-radius:50%}
+.wheel-ptr{position:absolute;top:-8px;left:50%;transform:translateX(-50%);z-index:3;width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-top:26px solid var(--gold-soft);filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
+.wheel-hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:50%;background:var(--gold-leaf);z-index:2;box-shadow:inset 0 2px 0 rgba(255,255,255,.4),0 5px 14px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:12px}
+.spin-btn{background:var(--gold-leaf);color:#fff;border:none;border-radius:40px;padding:15px 46px;font:inherit;font-weight:800;font-size:16px;cursor:pointer;box-shadow:0 8px 24px rgba(110,53,18,.5)}
+.spin-btn:disabled{opacity:.45;cursor:default}
+.spin-result{display:none;flex-direction:column;align-items:center;text-align:center;color:#fff;opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s}
+.spin-result.show{display:flex;opacity:1;transform:none}
+.spin-result .rico{width:60px;height:60px;margin-bottom:8px;border-radius:16px;background:rgba(228,168,110,.14);border:1px solid rgba(228,168,110,.32);display:flex;align-items:center;justify-content:center}
+.spin-result .rico svg{width:32px;height:32px;color:var(--gold-soft)}
+.spin-result .won{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft)}
+.spin-result .prize{font-size:26px;font-weight:800;letter-spacing:-.02em;margin:4px 0 2px}
+.spin-cta{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:#25D366;color:#062b16;font-weight:800;text-decoration:none;padding:14px 26px;border-radius:14px;font-size:15px}
+.spin-terms{margin-top:12px;font-size:11.5px;color:#8fa4c0}
 </style>
 </head>
 <body>
@@ -832,6 +858,39 @@ document.querySelectorAll('.ba').forEach(function(ba){
   window.ccOpenPrefs=function(){cc.classList.remove('manage');show();}; /* footer "Cookie settings" linki icin */
   var saved=null;try{saved=JSON.parse(localStorage.getItem(KEY));}catch(e){}
   if(saved){apply(!!saved.analytics,!!saved.marketing);}else{window.addEventListener('load',function(){setTimeout(show,600);});}
+})();
+</script>
+
+
+<button class="spin-fab" onclick="spinOpen()"><span class="disc"></span> Spin &amp; save</button>
+<div class="spin-ov" id="spinOv">
+  <button class="spin-x" onclick="spinClose()">&times;</button>
+  <div class="wheel-wrap"><div class="wheel-ptr"></div><div class="wheel" id="wheel"></div><div class="wheel-hub">SPIN</div></div>
+  <button class="spin-btn" id="spinBtn" onclick="doSpin()">Spin the wheel</button>
+  <div class="spin-result" id="spinRes">
+    <div class="rico" id="rico"></div><div class="won">You won</div><div class="prize" id="prizeTxt">&mdash;</div>
+    <a class="spin-cta" id="prizeCta" href="#" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg> Claim on WhatsApp</a>
+    <div class="spin-terms">Terms apply · confirmed via WhatsApp</div>
+  </div>
+</div>
+<script>
+(function(){
+var KEY='db_spin_v1';
+var ICONS={pct:'<path d="M7 7h.01M17 17h.01M7 17L17 7" stroke-width="2.2" stroke-linecap="round"/>',video:'<rect x="3" y="7" width="12" height="10" rx="2"/><path d="M15 10l6-3v10l-6-3z" stroke-linejoin="round"/>',brush:'<path d="M5 21c0-3 2-5 4-5h1V9H8V4h8v5h-2v7h1c2 0 4 2 4 5" stroke-linejoin="round"/>',mirror:'<circle cx="12" cy="9" r="5"/><path d="M12 14v7M9 21h6" stroke-linecap="round"/>',again:'<path d="M20 12a8 8 0 1 1-2.3-5.6" stroke-linecap="round"/><path d="M20 4v4h-4" stroke-linecap="round" stroke-linejoin="round"/>'};
+var PRIZES=[{t:"10% off your treatment",label:"10% OFF",icon:"pct",code:"SPIN10"},{t:"Free video consultation",label:"CONSULT",icon:"video",code:"FREECONSULT"},{t:"Free dental cleaning",label:"CLEANING",icon:"brush",code:"FREECLEAN"},{t:"5% off your treatment",label:"5% OFF",icon:"pct",code:"SPIN5"},{t:"Free check-up on arrival",label:"CHECK-UP",icon:"mirror",code:"FREECHECK"},{t:"Spin again next visit",label:"AGAIN",icon:"again",code:"AGAIN"}];
+var COLORS=["#123A63","#1A4C82","#0E5950","#123A63","#1A4C82","#0E5950"];
+var WA="https://wa.me/905387834218?text=";
+var N=PRIZES.length,seg=360/N;
+var r=150,cx=150,cy=150,svg='<svg viewBox="0 0 300 300">';
+for(var i=0;i<N;i++){var a0=(i*seg-90)*Math.PI/180,a1=((i+1)*seg-90)*Math.PI/180;var x0=cx+r*Math.cos(a0),y0=cy+r*Math.sin(a0),x1=cx+r*Math.cos(a1),y1=cy+r*Math.sin(a1);svg+='<path d="M'+cx+' '+cy+' L'+x0+' '+y0+' A'+r+' '+r+' 0 0 1 '+x1+' '+y1+' Z" fill="'+COLORS[i]+'" stroke="#09102D" stroke-width="1.5"/>';var mid=i*seg+seg/2,am=(mid-90)*Math.PI/180;var ix=cx+(r*0.66)*Math.cos(am),iy=cy+(r*0.66)*Math.sin(am);svg+='<g transform="translate('+ix+' '+iy+') rotate('+mid+') scale(0.9)"><g transform="translate(-12 -12)" fill="none" stroke="#fff" stroke-width="1.7">'+ICONS[PRIZES[i].icon]+'</g></g>';var lx=cx+(r*0.40)*Math.cos(am),ly=cy+(r*0.40)*Math.sin(am);svg+='<text x="'+lx+'" y="'+ly+'" fill="#fff" font-size="10.5" font-weight="800" text-anchor="middle" dominant-baseline="middle" transform="rotate('+mid+' '+lx+' '+ly+')">'+PRIZES[i].label+'</text>';}
+svg+='</svg>';
+var wheelEl=document.getElementById('wheel');wheelEl.innerHTML=svg;
+function showResult(p){document.getElementById('rico').innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">'+ICONS[p.icon]+'</svg>';document.getElementById('prizeTxt').textContent=p.t;document.getElementById('prizeCta').href=WA+encodeURIComponent("Hi! I spun the wheel and won: "+p.t+" (code "+p.code+"). I'd like to claim it.");document.getElementById('spinBtn').style.display='none';document.getElementById('spinRes').classList.add('show');}
+var done=null;try{done=JSON.parse(localStorage.getItem(KEY));}catch(e){}
+window.spinOpen=function(){document.getElementById('spinOv').classList.add('show');if(done){var idx=done.idx;wheelEl.style.transition='none';wheelEl.style.transform='rotate('+(360-(idx*seg+seg/2))+'deg)';showResult(PRIZES[idx]);}};
+window.spinClose=function(){document.getElementById('spinOv').classList.remove('show');};
+var spun=false;
+window.doSpin=function(){if(spun||done)return;spun=true;var btn=document.getElementById('spinBtn');btn.disabled=true;btn.textContent='Spinning…';var idx=Math.floor(Math.random()*N);var target=360*5+(360-(idx*seg+seg/2));wheelEl.style.transform='rotate('+target+'deg)';setTimeout(function(){try{localStorage.setItem(KEY,JSON.stringify({idx:idx,ts:Date.now()}));}catch(e){}done={idx:idx};showResult(PRIZES[idx]);},4800);};
 })();
 </script>
 
