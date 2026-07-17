@@ -188,6 +188,21 @@
 .jrow.imgL .jimg{grid-column:1}.jrow.imgL .jtext{grid-column:3;text-align:left}
 .jrow.imgR .jtext{grid-column:1;text-align:right}.jrow.imgR .jtext p{margin-left:auto}.jrow.imgR .jimg{grid-column:3}
 @media(max-width:760px){.journey::before{left:26px}.jrow{grid-template-columns:52px 1fr;gap:16px 14px;margin-bottom:34px}.jnode{grid-column:1;grid-row:1;width:44px;height:44px;font-size:15px}.jrow .jimg,.jrow.imgL .jimg,.jrow.imgR .jimg{grid-column:2;grid-row:1}.jrow .jtext,.jrow.imgL .jtext,.jrow.imgR .jtext{grid-column:2;grid-row:2;text-align:left!important;padding:0}.jrow.imgR .jtext p{margin-left:0}}
+
+/* before/after slider */
+.ba-track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 18px;-webkit-overflow-scrolling:touch}
+.ba-track::-webkit-scrollbar{height:8px}.ba-track::-webkit-scrollbar-thumb{background:rgba(11,13,40,.18);border-radius:20px}
+.ba-case{flex:0 0 clamp(300px,42vw,460px);scroll-snap-align:start}
+.ba{position:relative;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:0 14px 34px rgba(9,16,45,.16);user-select:none;touch-action:pan-y;cursor:ew-resize;background:linear-gradient(135deg,#243b57,#33566f)}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.ba .after{position:absolute;inset:0;clip-path:inset(0 0 0 50%);background:linear-gradient(135deg,#0E5950,#12907e)}
+.ba .lbl{position:absolute;bottom:12px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(9,16,45,.55);padding:5px 10px;border-radius:20px}
+.ba .lbl.b{left:12px}.ba .lbl.a{right:12px}
+.ba .handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--gold-soft);transform:translateX(-1px);pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--gold-leaf);box-shadow:0 4px 14px rgba(110,53,18,.4),inset 0 1px 0 rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;pointer-events:none}
+.ba .knob svg{width:20px;height:20px;color:#fff}
+.ba-cap{margin-top:12px;font-size:13.5px;color:var(--muted)}.ba-cap b{color:var(--ink);font-weight:700}
+.ba-note{margin-top:18px;font-size:13px;color:var(--muted);font-style:italic}
 </style>
 </head>
 <body>
@@ -444,14 +459,52 @@
   <div class="wrap">
     <div class="s-head reveal">
       <span class="eyebrow">Real results</span>
-      <h2>Before and <span class="accent">after</span></h2>
-      <p>Actual patients treated at our Istanbul clinic. No stock images, no AI, only our own cases.</p>
+      <h2 style="font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-.02em;margin:14px 0 12px;color:var(--ink)">Before and after — drag to reveal</h2>
+      <p style="color:var(--muted);max-width:60ch">Actual patients treated at our Istanbul clinic. No stock images, no AI, only our own cases. Drag the handle across each case to reveal the result.</p>
     </div>
-    <div class="uk-2" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-      <div class="reveal"><div style="position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/10;background:linear-gradient(135deg,#0F1E4C,#123A63);display:flex;align-items:center;justify-content:center"><div style="position:absolute;left:0;top:0;bottom:0;width:50%;border-right:2px solid rgba(255,255,255,.5)"></div><span style="position:absolute;left:14px;top:12px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9)">Before</span><span style="position:absolute;right:14px;top:12px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-soft)">After</span><span style="color:rgba(255,255,255,.6);font-size:13px">Real patient case</span></div></div>
-      <div class="reveal"><div style="position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/10;background:linear-gradient(135deg,#0F1E4C,#123A63);display:flex;align-items:center;justify-content:center"><div style="position:absolute;left:0;top:0;bottom:0;width:50%;border-right:2px solid rgba(255,255,255,.5)"></div><span style="position:absolute;left:14px;top:12px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9)">Before</span><span style="position:absolute;right:14px;top:12px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-soft)">After</span><span style="color:rgba(255,255,255,.6);font-size:13px">Real patient case</span></div></div>
+    <div class="ba-track">
+      <div class="ba-case">
+        <div class="ba" data-x="50">
+          <img class="beforeimg" src="../assets/results-1-before.jpg" alt="Before" onerror="this.style.display='none'">
+          <div class="after"><img src="../assets/results-1-after.jpg" alt="After" onerror="this.style.display='none'"></div>
+          <span class="lbl b">Before</span><span class="lbl a">After</span>
+          <div class="handle"></div>
+          <div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg></div>
+        </div>
+        <div class="ba-cap"><b>Full smile makeover</b> · zirconia crowns</div>
+      </div>
+      <div class="ba-case">
+        <div class="ba" data-x="50">
+          <img class="beforeimg" src="../assets/results-2-before.jpg" alt="Before" onerror="this.style.display='none'">
+          <div class="after"><img src="../assets/results-2-after.jpg" alt="After" onerror="this.style.display='none'"></div>
+          <span class="lbl b">Before</span><span class="lbl a">After</span>
+          <div class="handle"></div>
+          <div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg></div>
+        </div>
+        <div class="ba-cap"><b>Porcelain veneers</b> · natural shade</div>
+      </div>
+      <div class="ba-case">
+        <div class="ba" data-x="50">
+          <img class="beforeimg" src="../assets/results-3-before.jpg" alt="Before" onerror="this.style.display='none'">
+          <div class="after"><img src="../assets/results-3-after.jpg" alt="After" onerror="this.style.display='none'"></div>
+          <span class="lbl b">Before</span><span class="lbl a">After</span>
+          <div class="handle"></div>
+          <div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg></div>
+        </div>
+        <div class="ba-cap"><b>Implant-supported bridge</b> · fixed teeth</div>
+      </div>
+      <div class="ba-case">
+        <div class="ba" data-x="50">
+          <img class="beforeimg" src="../assets/results-4-before.jpg" alt="Before" onerror="this.style.display='none'">
+          <div class="after"><img src="../assets/results-4-after.jpg" alt="After" onerror="this.style.display='none'"></div>
+          <span class="lbl b">Before</span><span class="lbl a">After</span>
+          <div class="handle"></div>
+          <div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg></div>
+        </div>
+        <div class="ba-cap"><b>Hollywood smile</b> · complete design</div>
+      </div>
     </div>
-    <p style="margin-top:16px;font-size:13.5px;color:var(--muted)">Real case photographs are supplied by the clinic and placed here.</p>
+    <p class="ba-note">Real case photographs are supplied by the clinic.</p>
   </div>
 </section>
 
@@ -598,6 +651,17 @@
 <script>
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+<script>
+document.querySelectorAll('.ba').forEach(function(ba){
+  function setX(px){var r=ba.getBoundingClientRect();var p=Math.max(0,Math.min(100,((px-r.left)/r.width)*100));ba.querySelector('.after').style.clipPath='inset(0 0 0 '+p+'%)';ba.querySelector('.handle').style.left=p+'%';ba.querySelector('.knob').style.left=p+'%';}
+  var drag=false;
+  ba.addEventListener('pointerdown',function(e){drag=true;setX(e.clientX);try{ba.setPointerCapture(e.pointerId);}catch(x){}});
+  ba.addEventListener('pointermove',function(e){if(drag)setX(e.clientX);});
+  ba.addEventListener('pointerup',function(){drag=false;});
+  ba.addEventListener('pointercancel',function(){drag=false;});
+});
 </script>
 </body>
 </html>
