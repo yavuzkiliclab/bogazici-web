@@ -356,6 +356,25 @@
 .gbody h3{margin:0 0 7px;font-size:17px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
 .gbody p{margin:0 0 16px;font-size:14px;color:var(--muted);flex:1}
 .gbody .rd{font-size:13px;font-weight:700;color:var(--gold-mid);display:inline-flex;align-items:center;gap:5px}
+
+@keyframes odGlow{0%,100%{box-shadow:0 0 0 1px rgba(242,193,78,.35),0 0 40px rgba(242,193,78,.15),0 20px 50px rgba(0,0,0,.35)}50%{box-shadow:0 0 0 1px rgba(242,193,78,.6),0 0 70px rgba(242,193,78,.35),0 20px 50px rgba(0,0,0,.35)}}
+@keyframes odPulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.55)}70%{box-shadow:0 0 0 10px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+@keyframes odMarquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes odCardIn{0%{opacity:0;transform:translateY(16px)}100%{opacity:1;transform:translateY(0)}}
+.od-box{animation:odGlow 3.2s ease-in-out infinite;border-radius:22px}
+.od-dot{animation:odPulse 1.8s ease-out infinite}
+.od-marquee{overflow:hidden;white-space:nowrap;margin-bottom:20px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.od-marquee-track{display:inline-block;animation:odMarquee 18s linear infinite}
+.od-marquee-track span{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:800;color:var(--gold-soft);padding:0 22px}
+.ev-grid>a{animation:odCardIn .5s ease-out both}
+.ev-grid>a:nth-child(1){animation-delay:.05s}.ev-grid>a:nth-child(2){animation-delay:.15s}.ev-grid>a:nth-child(3){animation-delay:.25s}.ev-grid>a:nth-child(4){animation-delay:.35s}
+.ev-grid>a:hover{background:rgba(255,255,255,.14)!important;transform:translateY(-4px)!important;box-shadow:0 14px 30px rgba(0,0,0,.3)}
+@media(max-width:820px){.ev-grid{grid-template-columns:1fr 1fr!important}}
+@media(max-width:480px){.ev-grid{grid-template-columns:1fr!important}}
+
+.od-box{position:relative}
+.od-box::before{content:"";position:absolute;top:-40px;right:-40px;width:280px;height:280px;background:radial-gradient(circle,rgba(242,193,78,.35),transparent 65%);pointer-events:none;filter:blur(20px)}
+@media(max-width:860px){.od-2col{grid-template-columns:1fr!important}.od-photo{min-height:200px!important}}
 </style>
 </head>
 <body>
@@ -522,6 +541,61 @@
     </svg><div aria-hidden="true" style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(96px,15vw,210px);line-height:.78;letter-spacing:-.02em;background:var(--gold-leaf);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent">1964</div></div>
   </div>
 </section>
+<section class="sec" id="ukopendays">
+  <div class="wrap reveal">
+    <div class="od-box" style="background:var(--ink);color:#fff;border-radius:22px;padding:44px 40px;position:relative;overflow:hidden">
+      <div style="position:absolute;inset:0;background:radial-gradient(60% 120% at 0 0,rgba(242,193,78,.28),transparent 55%);pointer-events:none"></div>
+      <div style="position:relative;display:grid;grid-template-columns:280px minmax(0,1fr);gap:38px;align-items:center" class="od-2col">
+        <div class="od-photo" style="position:relative;border-radius:16px;overflow:hidden;min-height:300px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center">
+          <img src="assets/uk-meeting.jpg" alt="Our team meeting patients in the UK" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(255,255,255,.5);text-align:center;padding:24px">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 20a5 5 0 0 1 6.5-4.8"/></svg>
+            <span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700">Meeting photo</span>
+          </div>
+        </div>
+        <div>
+        <div class="od-marquee"><div class="od-marquee-track"><span>Limited places</span><span>&bull;</span><span>August open days</span><span>&bull;</span><span>Meet us in person</span><span>&bull;</span><span>Book now</span><span>&bull;</span><span>Limited places</span><span>&bull;</span><span>August open days</span><span>&bull;</span><span>Meet us in person</span><span>&bull;</span><span>Book now</span><span>&bull;</span></div></div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+          <span class="od-dot" style="width:9px;height:9px;border-radius:50%;background:#4ADE80"></span>
+          <span class="eyebrow" style="color:var(--gold-soft)">Meet us in the UK &middot; August open days</span>
+        </div>
+        <h2 style="color:#fff;font-size:clamp(26px,3.3vw,40px);font-weight:800;letter-spacing:-.02em;max-width:22ch">See us in person before you travel</h2>
+        <p style="color:rgba(255,255,255,.82);font-size:16px;line-height:1.7;margin-top:14px;max-width:64ch">Our team comes to the UK through August for free one-to-one consultation days. Bring your questions, see example materials, and plan the whole journey with us: flights, hotel, clinic schedule and VIP transfers. Places are limited at each location.</p>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:30px" class="ev-grid">
+          <a href="https://wa.me/905387834218?text=Hi%21%20I%27d%20like%20to%20reserve%20a%20place%20for%20the%20UK%20open%20day%20in%20Liverpool%20%281-2%20August%29.%20Please%20send%20me%20the%20details." style="text-decoration:none;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:22px 20px;display:block">
+            <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);font-weight:700">1&ndash;2 August</div>
+            <div style="color:#fff;font-size:22px;font-weight:800;margin-top:8px">Liverpool</div>
+            <div style="color:rgba(255,255,255,.7);font-size:13px;margin-top:12px">Reserve your place <span style="color:var(--gold-soft)">&rarr;</span></div>
+          </a>
+          <a href="https://wa.me/905387834218?text=Hi%21%20I%27d%20like%20to%20reserve%20a%20place%20for%20the%20UK%20open%20day%20in%20Newcastle%20%288-9%20August%29.%20Please%20send%20me%20the%20details." style="text-decoration:none;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:22px 20px;display:block">
+            <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);font-weight:700">8&ndash;9 August</div>
+            <div style="color:#fff;font-size:22px;font-weight:800;margin-top:8px">Newcastle</div>
+            <div style="color:rgba(255,255,255,.7);font-size:13px;margin-top:12px">Reserve your place <span style="color:var(--gold-soft)">&rarr;</span></div>
+          </a>
+          <a href="https://wa.me/905387834218?text=Hi%21%20I%27d%20like%20to%20reserve%20a%20place%20for%20the%20UK%20open%20day%20in%20Hull%20%2815-16%20August%29.%20Please%20send%20me%20the%20details." style="text-decoration:none;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:22px 20px;display:block">
+            <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);font-weight:700">15&ndash;16 August</div>
+            <div style="color:#fff;font-size:22px;font-weight:800;margin-top:8px">Hull</div>
+            <div style="color:rgba(255,255,255,.7);font-size:13px;margin-top:12px">Reserve your place <span style="color:var(--gold-soft)">&rarr;</span></div>
+          </a>
+          <a href="https://wa.me/905387834218?text=Hi%21%20I%27d%20like%20to%20reserve%20a%20place%20for%20the%20UK%20open%20day%20in%20Belfast%20%2822-23%20August%29.%20Please%20send%20me%20the%20details." style="text-decoration:none;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:22px 20px;display:block">
+            <div style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);font-weight:700">22&ndash;23 August</div>
+            <div style="color:#fff;font-size:22px;font-weight:800;margin-top:8px">Belfast</div>
+            <div style="color:rgba(255,255,255,.7);font-size:13px;margin-top:12px">Reserve your place <span style="color:var(--gold-soft)">&rarr;</span></div>
+          </a>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14)">
+          <span style="font-size:13.5px;color:rgba(255,255,255,.86);font-weight:600">Based at our Bolton office</span>
+          <span style="width:1px;height:16px;background:rgba(255,255,255,.2)"></span>
+          <span style="font-size:13.5px;color:rgba(255,255,255,.86);font-weight:600">Every Tuesday &amp; Wednesday</span>
+          <span style="width:1px;height:16px;background:rgba(255,255,255,.2)"></span>
+          <span style="font-size:13.5px;color:rgba(255,255,255,.86);font-weight:600">Free, limited places</span>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <section class="sec" id="work">
   <div class="wrap">
@@ -685,6 +759,7 @@
     </div>
   </div>
 </section>
+
 
 <section class="sec" id="ukcare">
   <div class="wrap reveal">
