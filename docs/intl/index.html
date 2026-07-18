@@ -350,7 +350,7 @@
 .gthumb{aspect-ratio:5/2;position:relative;overflow:hidden;background:linear-gradient(150deg,#0E1A3D,#123A63 60%,#1A4C82)}.gthumb::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold-leaf)}
 .gthumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
 .gcard:hover .gthumb img{transform:scale(1.04)}
-.gthumb .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px;color:#9fb4d0;gap:4px}
+.gthumb .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px;color:#9fb4d0;gap:4px}.gthumb .ph{display:none}.gthumb.img-failed .ph{display:flex}
 .gthumb .ph b{color:var(--gold-soft);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
 .gthumb .ph span{font-size:12px}
 .gbody{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
@@ -715,8 +715,8 @@
     <div class="ba-track">
       <div class="ba-case">
         <div class="ba" data-x="50">
-          <img class="beforeimg" src="assets/results-1-before.jpg" alt="Before" onerror="this.style.display='none'">
-          <div class="after"><img src="assets/results-1-after.jpg" alt="After" onerror="this.style.display='none'"></div>
+          <img class="beforeimg" src="assets/results-1-before.jpg" alt="Before" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')">
+          <div class="after"><img src="assets/results-1-after.jpg" alt="After" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"></div>
           <span class="lbl b">Before</span><span class="lbl a">After</span>
           <div class="handle"></div>
           <div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg></div>
@@ -725,8 +725,8 @@
       </div>
       <div class="ba-case">
         <div class="ba" data-x="50">
-          <img class="beforeimg" src="assets/results-2-before.jpg" alt="Before" onerror="this.style.display='none'">
-          <div class="after"><img src="assets/results-2-after.jpg" alt="After" onerror="this.style.display='none'"></div>
+          <img class="beforeimg" src="assets/results-2-before.jpg" alt="Before" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')">
+          <div class="after"><img src="assets/results-2-after.jpg" alt="After" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"></div>
           <span class="lbl b">Before</span><span class="lbl a">After</span>
           <div class="handle"></div>
           <div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg></div>
@@ -735,8 +735,8 @@
       </div>
       <div class="ba-case">
         <div class="ba" data-x="50">
-          <img class="beforeimg" src="assets/results-3-before.jpg" alt="Before" onerror="this.style.display='none'">
-          <div class="after"><img src="assets/results-3-after.jpg" alt="After" onerror="this.style.display='none'"></div>
+          <img class="beforeimg" src="assets/results-3-before.jpg" alt="Before" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')">
+          <div class="after"><img src="assets/results-3-after.jpg" alt="After" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"></div>
           <span class="lbl b">Before</span><span class="lbl a">After</span>
           <div class="handle"></div>
           <div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg></div>
@@ -745,8 +745,8 @@
       </div>
       <div class="ba-case">
         <div class="ba" data-x="50">
-          <img class="beforeimg" src="assets/results-4-before.jpg" alt="Before" onerror="this.style.display='none'">
-          <div class="after"><img src="assets/results-4-after.jpg" alt="After" onerror="this.style.display='none'"></div>
+          <img class="beforeimg" src="assets/results-4-before.jpg" alt="Before" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')">
+          <div class="after"><img src="assets/results-4-after.jpg" alt="After" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"></div>
           <span class="lbl b">Before</span><span class="lbl a">After</span>
           <div class="handle"></div>
           <div class="knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5"/></svg></div>
@@ -840,11 +840,11 @@
       <p style="color:var(--muted);max-width:62ch">Our UK partner network has met patients in person across the country, with pre-examinations and follow-ups, long before anyone books a flight. This is not a promise on a page; it already happens.</p>
     </div>
     <div class="ukev-track">
-      <div class="ukev"><img src="assets/uk-event-1.jpg" alt="Pre-consultation day" loading="lazy" onerror="this.style.display='none'"><div class="cap"><b>Pre-consultation day</b>Meeting patients in person</div></div>
-      <div class="ukev"><img src="assets/uk-event-2.jpg" alt="UK partner location" loading="lazy" onerror="this.style.display='none'"><div class="cap"><b>UK partner location</b>Face-to-face assessment</div></div>
-      <div class="ukev"><img src="assets/uk-event-3.jpg" alt="Follow-up visit" loading="lazy" onerror="this.style.display='none'"><div class="cap"><b>Follow-up visit</b>Aftercare, close to home</div></div>
-      <div class="ukev"><img src="assets/uk-event-4.jpg" alt="On the ground in the UK" loading="lazy" onerror="this.style.display='none'"><div class="cap"><b>On the ground in the UK</b>Real people, real meetings</div></div>
-      <div class="ukev"><img src="assets/uk-event-5.jpg" alt="Consultation session" loading="lazy" onerror="this.style.display='none'"><div class="cap"><b>Consultation session</b>Plans confirmed before travel</div></div>
+      <div class="ukev"><img src="assets/uk-event-1.jpg" alt="Pre-consultation day" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"><div class="cap"><b>Pre-consultation day</b>Meeting patients in person</div></div>
+      <div class="ukev"><img src="assets/uk-event-2.jpg" alt="UK partner location" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"><div class="cap"><b>UK partner location</b>Face-to-face assessment</div></div>
+      <div class="ukev"><img src="assets/uk-event-3.jpg" alt="Follow-up visit" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"><div class="cap"><b>Follow-up visit</b>Aftercare, close to home</div></div>
+      <div class="ukev"><img src="assets/uk-event-4.jpg" alt="On the ground in the UK" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"><div class="cap"><b>On the ground in the UK</b>Real people, real meetings</div></div>
+      <div class="ukev"><img src="assets/uk-event-5.jpg" alt="Consultation session" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"><div class="cap"><b>Consultation session</b>Plans confirmed before travel</div></div>
     </div>
     <p class="ukev-foot">Photographs from our UK partner network's own events.</p>
   </div>
@@ -860,7 +860,7 @@
     </div>
     <div class="journey">
       <div class="jrow imgL reveal"><div class="jimg"><img src="assets/journey-1.jpg" alt="UK pre-consultation" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('jimg-empty')"></div><div class="jnode">1</div><div class="jtext"><span class="tag">Before you fly</span><h3>A pre-consultation in the UK</h3><p>Meet a UK partner dentist for a pre-examination and have your plan confirmed before you book a single flight.</p></div></div>
-      <div class="jrow imgR reveal"><div class="jtext"><span class="tag">On arrival</span><h3>Met at the airport, settled in</h3><p>You are met on landing and privately driven to a hotel arranged near the clinic. Nothing to organise yourself.</p></div><div class="jnode">2</div><div class="jimg"><img src="assets/journey-2.jpg" alt="Arrival in Istanbul" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('jimg-empty')"></div></div>
+      <div class="jrow imgR reveal"><div class="jtext"><span class="tag">On arrival</span><h3>Met at the airport, settled in</h3><p>You are met on landing and privately driven to a hotel arranged near the clinic. Nothing to organise yourself.</p></div><div class="jnode">2</div><div class="jimg"><img src="assets/journey-2.jpg" style="object-position:top" alt="Arrival in Istanbul" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('jimg-empty')"></div></div>
       <div class="jrow imgL reveal"><div class="jimg"><img src="assets/journey-3.jpg" alt="Examination" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('jimg-empty')"></div><div class="jnode">3</div><div class="jtext"><span class="tag">At the clinic</span><h3>Examination and final plan</h3><p>Scans and a full examination with the dentist who will treat you. Nothing begins until the plan is agreed with you.</p></div></div>
       <div class="jrow imgR reveal"><div class="jtext"><span class="tag">Your treatment</span><h3>Planned and performed by the same hand</h3><p>The dentist who planned your smile is the one who shapes it. With the laboratory on-site, adjustments take minutes, not days.</p></div><div class="jnode">4</div><div class="jimg"><img src="assets/journey-4.jpg" alt="Treatment" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('jimg-empty')"></div></div>
       <div class="jrow imgL reveal"><div class="jimg"><img src="assets/journey-5.jpg" alt="The city" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('jimg-empty')"></div><div class="jnode">5</div><div class="jtext"><span class="tag">Between appointments</span><h3>Time to rest, and to see the city</h3><p>Room to recover between visits, with your coordinator reachable throughout your stay.</p></div></div>
@@ -893,7 +893,7 @@
     <div class="pp reveal">
       <div class="pp-grid">
         <div class="pp-visual">
-          <img src="assets/price-lock.jpg" alt="A written treatment plan and agreed price" loading="lazy" onerror="this.style.display='none'">
+          <img src="assets/price-lock.jpg" alt="A written treatment plan and agreed price" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')">
           <div class="pp-emblem">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke-linecap="round"/><path d="M12 15v2" stroke-linecap="round"/></svg>
           </div>
@@ -953,7 +953,7 @@
     </div>
   </div>
 </section>
-<section class="sec" id="guide"><div class="wrap"><div class="s-head reveal"><span class="eyebrow">Patient guides</span><h2 style="font-weight:800;letter-spacing:-.02em;margin:14px 0 12px;color:var(--ink)">Understand your treatment before you decide</h2><p style="color:var(--muted);max-width:60ch">Clear, in-depth articles on every treatment we offer, written by our dentists, so you arrive informed, not uncertain.</p></div><div class="guide-grid"><a class="gcard" href="treatments/implantology.html"><div class="gthumb"><img src="assets/guide-implants.jpg" alt="Dental Implants" loading="lazy" onerror="this.style.display='none'"><div class="ph"><b>Dental implants</b><span>titanium root &amp; crown</span></div></div><div class="gbody"><h3>Dental Implants</h3><p>Titanium roots that replace missing teeth for good.</p><span class="rd">Read the guide &rarr;</span></div></a><a class="gcard" href="treatments/aesthetic-dentistry.html"><div class="gthumb"><img src="assets/guide-aesthetics.jpg" alt="Aesthetics and Veneers" loading="lazy" onerror="this.style.display='none'"><div class="ph"><b>Veneers</b><span>smile design</span></div></div><div class="gbody"><h3>Aesthetics &amp; Veneers</h3><p>Veneers, bonding and complete smile design. What suits you, and what lasts.</p><span class="rd">Read the guide &rarr;</span></div></a><a class="gcard" href="treatments/endodontics.html"><div class="gthumb"><img src="assets/guide-endodontics.jpg" alt="Endodontics" loading="lazy" onerror="this.style.display='none'"><div class="ph"><b>Endodontics</b><span>root canal treatment</span></div></div><div class="gbody"><h3>Endodontics</h3><p>Root canal treatment: saving a natural tooth, comfortably and predictably.</p><span class="rd">Read the guide &rarr;</span></div></a><a class="gcard" href="treatments/orthodontics.html"><div class="gthumb"><img src="assets/guide-orthodontics.jpg" alt="Orthodontics" loading="lazy" onerror="this.style.display='none'"><div class="ph"><b>Orthodontics</b><span>clear aligners</span></div></div><div class="gbody"><h3>Orthodontics</h3><p>Aligners and braces for a straighter smile, at any age.</p><span class="rd">Read the guide &rarr;</span></div></a><a class="gcard" href="treatments/periodontology.html"><div class="gthumb"><img src="assets/guide-periodontology.jpg" alt="Periodontology" loading="lazy" onerror="this.style.display='none'"><div class="ph"><b>Periodontology</b><span>healthy gums</span></div></div><div class="gbody"><h3>Periodontology</h3><p>Healthy gums: the foundation beneath every lasting dental result.</p><span class="rd">Read the guide &rarr;</span></div></a><a class="gcard" href="guide/preventive-care.html"><div class="gthumb"><img src="assets/guide-preventive-care.jpg" alt="Preventive Care" loading="lazy" onerror="this.style.display='none'"><div class="ph"><b>Preventive care</b><span>daily oral health</span></div></div><div class="gbody"><h3>Preventive Care</h3><p>Simple daily habits that protect your teeth, and your investment, for life.</p><span class="rd">Read the guide &rarr;</span></div></a><a class="gcard" href="journal/how-many-days-in-istanbul-dental.html"><div class="gthumb"><img src="assets/guide-istanbul-travel.jpg" alt="Istanbul and Your Trip" loading="lazy" onerror="this.style.display='none'"><div class="ph"><b>Istanbul</b><span>dental travel</span></div></div><div class="gbody"><h3>Istanbul &amp; Your Trip</h3><p>How many days, how many visits, and the travel logistics.</p><span class="rd">Read the guide &rarr;</span></div></a></div></div></section>
+<section class="sec" id="guide"><div class="wrap"><div class="s-head reveal"><span class="eyebrow">Patient guides</span><h2 style="font-weight:800;letter-spacing:-.02em;margin:14px 0 12px;color:var(--ink)">Understand your treatment before you decide</h2><p style="color:var(--muted);max-width:60ch">Clear, in-depth articles on every treatment we offer, written by our dentists, so you arrive informed, not uncertain.</p></div><div class="guide-grid"><a class="gcard" href="treatments/implantology.html"><div class="gthumb"><img src="assets/guide-implants.jpg" style="object-position:50% 62%" alt="Dental Implants" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"><div class="ph"><b>Dental implants</b><span>titanium root &amp; crown</span></div></div><div class="gbody"><h3>Dental Implants</h3><p>Titanium roots that replace missing teeth for good.</p><span class="rd">Read the guide &rarr;</span></div></a><a class="gcard" href="treatments/aesthetic-dentistry.html"><div class="gthumb"><img src="assets/guide-aesthetics.jpg" style="object-position:50% 25%" alt="Aesthetics and Veneers" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"><div class="ph"><b>Veneers</b><span>smile design</span></div></div><div class="gbody"><h3>Aesthetics &amp; Veneers</h3><p>Veneers, bonding and complete smile design. What suits you, and what lasts.</p><span class="rd">Read the guide &rarr;</span></div></a><a class="gcard" href="treatments/endodontics.html"><div class="gthumb"><img src="assets/guide-endodontics.jpg" alt="Endodontics" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"><div class="ph"><b>Endodontics</b><span>root canal treatment</span></div></div><div class="gbody"><h3>Endodontics</h3><p>Root canal treatment: saving a natural tooth, comfortably and predictably.</p><span class="rd">Read the guide &rarr;</span></div></a><a class="gcard" href="treatments/orthodontics.html"><div class="gthumb"><img src="assets/guide-orthodontics.jpg" alt="Orthodontics" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"><div class="ph"><b>Orthodontics</b><span>clear aligners</span></div></div><div class="gbody"><h3>Orthodontics</h3><p>Aligners and braces for a straighter smile, at any age.</p><span class="rd">Read the guide &rarr;</span></div></a><a class="gcard" href="treatments/periodontology.html"><div class="gthumb"><img src="assets/guide-periodontology.jpg" alt="Periodontology" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"><div class="ph"><b>Periodontology</b><span>healthy gums</span></div></div><div class="gbody"><h3>Periodontology</h3><p>Healthy gums: the foundation beneath every lasting dental result.</p><span class="rd">Read the guide &rarr;</span></div></a><a class="gcard" href="guide/preventive-care.html"><div class="gthumb"><img src="assets/guide-preventive-care.jpg" style="object-position:50% 38%" alt="Preventive Care" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"><div class="ph"><b>Preventive care</b><span>daily oral health</span></div></div><div class="gbody"><h3>Preventive Care</h3><p>Simple daily habits that protect your teeth, and your investment, for life.</p><span class="rd">Read the guide &rarr;</span></div></a><a class="gcard" href="journal/how-many-days-in-istanbul-dental.html"><div class="gthumb"><img src="assets/guide-istanbul-travel.jpg" alt="Istanbul and Your Trip" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-failed')"><div class="ph"><b>Istanbul</b><span>dental travel</span></div></div><div class="gbody"><h3>Istanbul &amp; Your Trip</h3><p>How many days, how many visits, and the travel logistics.</p><span class="rd">Read the guide &rarr;</span></div></a></div></div></section>
 
 <section class="sec" id="journal">
   <div class="wrap">
