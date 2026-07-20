@@ -189,3 +189,13 @@ footer .soc svg{width:22px;height:22px;display:block}
   .quick-facts{grid-template-columns:1fr 1fr;gap:10px}
   .related-grid{grid-template-columns:1fr}
 }
+
+/* Icindekiler (rehber uzun makaleler) */
+.toc{margin:22px 0 6px;border:1px solid var(--line);border-radius:var(--radius);padding:18px 22px;background:#F7F8FB}
+.toc-t{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--gold-mid);margin-bottom:12px}
+.toc ol{margin:0;padding-left:20px;columns:2;column-gap:30px}
+.toc li{margin-bottom:7px;font-size:14.5px;break-inside:avoid}
+.toc a{color:var(--indigo);text-decoration:none;transition:color .2s}
+.toc a:hover{color:var(--gold-mid);text-decoration:underline;text-underline-offset:2px}
+.doc h2[id]{scroll-margin-top:88px}
+@media (max-width:620px){.toc ol{columns:1}}
