@@ -6,7 +6,7 @@
       <circle cx="100" cy="100" r="96" fill="none" stroke="#B8946E" stroke-width="1"/>
       <circle cx="100" cy="100" r="66" fill="none" stroke="#B8946E" stroke-width=".8"/>
       <text font-family="Instrument Sans,sans-serif" font-size="9.2" letter-spacing="3.4" fill="#D8BE9C" font-weight="500">
-        <textPath href="#ringFooter" startOffset="0">BOĞAZİÇİ DİŞ · ISTANBUL · EST. MCMLXIV · SMILE ATELIER ·</textPath>
+        <textPath href="#ringFooter" startOffset="0" textLength="486" lengthAdjust="spacing">BOĞAZİÇİ DİŞ · İSTANBUL · 1964 · ATÖLYE ·</textPath>
       </text>
       <g clip-path="url(#clipFooter)">
         <circle cx="100" cy="100" r="56" fill="#0D1738"/>
