@@ -139,7 +139,7 @@
   .wc h3{font-size:17px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
   .wc p{font-size:13.5px;color:var(--muted);line-height:1.55}
 
-  .dent-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .dent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
 @media(max-width:1100px){.dent-grid{grid-template-columns:repeat(2,1fr)}}
   .dent{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:box-shadow .25s,transform .25s}
   .dent:hover{box-shadow:0 20px 40px rgba(11,13,40,.1);transform:translateY(-4px)}
@@ -731,6 +731,14 @@
           <h3>Dt. Yasemin Samur</h3>
           <p class="disc">Aesthetic &amp; Cosmetic Dentistry · Smile Design · Implant-Supported Prosthetics</p>
           <span class="tag">Aesthetics &amp; smile design</span>
+        </div>
+      </article>
+      <article class="dent reveal">
+        <img class="photo" src="assets/embedded/dt-hasan-unal.jpg" alt="Dt. Hasan Yasin Ünal">
+        <div class="body">
+          <h3>Dt. Hasan Yasin Ünal</h3>
+          <p class="disc">Orthodontics · Clear Aligner &amp; Fixed Brace Treatment</p>
+          <span class="tag">Orthodontics</span>
         </div>
       </article>
     </div>
